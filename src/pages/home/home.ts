@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { MqttService, MqttMessage } from 'ngx-mqtt';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +7,14 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(private _mqttService: MqttService) {}
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad HomePage');
+
+    this._mqttService.observe('#')
+        .subscribe((message: MqttMessage) => {
+          console.log(message.payload.toString());
+        });
   }
-
 }
