@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MqttService, MqttMessage } from "ngx-mqtt/src";
+import { MqttService, MqttMessage } from "ngx-mqtt";
 
 @Component({
   selector: 'page-about',
