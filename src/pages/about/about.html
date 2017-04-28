@@ -7,5 +7,20 @@
 </ion-header>
 
 <ion-content padding>
-  Send message 'home' or 'contact' to topic 'about' to change tabs 
+  <ion-card>
+    <ion-card-content>  Send message 'home' or 'contact' to topic 'about' to change tabs
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-title> 
+       <ion-item>
+    <ion-label stacked>message topic:</ion-label>
+    <ion-input type="text" (input)="onTopicChange(topic)" [(ngModel)]='topic'>{{topic}}</ion-input>
+  </ion-item>
+    </ion-card-title>
+    <ion-card-content>
+      {{(observableMessage | async)?.payload.toString()}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
